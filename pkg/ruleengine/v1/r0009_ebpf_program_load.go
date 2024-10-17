@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"slices"
 
+	"github.com/kubescape/node-agent/pkg/cooldown"
 	"github.com/kubescape/node-agent/pkg/objectcache"
 	"github.com/kubescape/node-agent/pkg/ruleengine"
 	"github.com/kubescape/node-agent/pkg/utils"
@@ -124,4 +125,8 @@ func (rule *R0009EbpfProgramLoad) Requirements() ruleengine.RuleSpec {
 	return &RuleRequirements{
 		EventTypes: R0009EbpfProgramLoadRuleDescriptor.Requirements.RequiredEventTypes(),
 	}
+}
+
+func (rule *R0009EbpfProgramLoad) CooldownConfig() *cooldown.CooldownConfig {
+	return nil
 }
